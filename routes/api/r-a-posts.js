@@ -102,7 +102,7 @@ router.delete('/:id', passport.authenticate('jwt', {
 router.post('/like/:id', passport.authenticate('jwt', {
     session: false
 }), (req, res) => {
-    Profile.findOne({
+    Profile.findOne({ //? why do I need to call Profile.fineOne[]
             user: req.user.id
         })
         .then(profile => {
