@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 //* Anytime when I want to add props, I should add proptypes also
 import { PropTypes } from 'prop-types';
 import { connect } from 'react-redux';
-import classnames from 'classnames';
 import { loginUser } from '../../actions/authActions';
+import TextFieldGroup from '../common/TextFieldGroup';
 
 export class Login extends Component {
     constructor() {
@@ -50,14 +50,22 @@ export class Login extends Component {
                             <h1 class="display-4 text-center">Log In</h1>
                             <p class="lead text-center">Sign in to your DevConnector account</p>
                             <form onSubmit={this.onSubmit}>
-                                <div class="form-group">
-                                    <input type="email" className={classnames('form-control form-control-lg', { 'is-invalid': errors.email })} placeholder="Email Address" name="email" value={this.state.email} onChange={this.onChange} />
-                                    {errors.email && (<div className='isValid-feedback text-danger text-danger'>{errors.email}</div>)}
-                                </div>
-                                <div class="form-group">
-                                    <input type="password" className={classnames('form-control form-control-lg', { 'is-invalid': errors.password })} placeholder="Password" name="password" value={this.state.password} onChange={this.onChange} />
-                                    {errors.password && (<div className='isValid-feedback text-danger text-danger'>{errors.password}</div>)}
-                                </div>
+                                <TextFieldGroup
+                                    placeholder="Email Address"
+                                    name="email"
+                                    type="email"
+                                    value={this.state.email}
+                                    onChange={this.onChange}
+                                    error={errors.email}
+                                />
+                                <TextFieldGroup
+                                    placeholder="Password"
+                                    name="password"
+                                    type="password"
+                                    value={this.state.password}
+                                    onChange={this.onChange}
+                                    error={errors.password}
+                                />
                                 <input type="submit" class="btn btn-info btn-block mt-4" />
                             </form>
                         </div>
