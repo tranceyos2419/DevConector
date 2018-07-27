@@ -20,6 +20,10 @@ import Register from './components/autho/Register';
 import Dashboard from './components/dashboard/dashboard';
 import { clearCurrentProfile } from './actions/profileActions';
 import CreateProfile from './components/create-profile/CreateProfile';
+import EditProfile from './components/edit-profile/EditProfile';
+import AddExperience from './components/add-credentials/AddExperience';
+import AddEducation from './components/add-credentials/AddEducation';
+
 
 
 
@@ -60,6 +64,18 @@ class App extends Component {
           </Switch>
           <Switch>
             <PrivateRoute exact path="/create-profile" component={CreateProfile} />
+          </Switch>
+          <Switch>
+            <PrivateRoute exact path="/edit-profile" component={EditProfile} />
+          </Switch>
+          <Switch>
+            <PrivateRoute exact path="/edit-profile" component={EditProfile} />
+          </Switch>
+          <Switch>
+            <PrivateRoute exact path="/add-experience" component={AddExperience} />
+          </Switch>
+          <Switch>
+            <PrivateRoute exact path="/add-education" component={AddEducation} />
           </Switch>
           <Footer />
         </div>
